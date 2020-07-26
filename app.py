@@ -1,5 +1,7 @@
 import csv
 
+# Made by Ben Mills - 07/2020
+
 # Available export formats
 availableExportFormats = ['Capture', 'MA3D']
 # Chosen export format
@@ -31,15 +33,14 @@ def runExport():
 
     elif exportFormat == ['MA3D']:
         print('Chosen export format:', ''.join(exportFormat), '\n')
-        for row in iData:
-            print(row['Instrument Type'], '/ U:', row['Unit Number'], 'on the', row['Position'], '    is now at rotation:   ', row['X Rotation'], row['Y Rotation'], row['Z Rotation'])
+        print('This export format is currently unsupported.')
     else:
         print('Invalid export format chosen.')
 
 runExport()
 
-file = file.split('.', 1)[0]
-fileSaveName = (''.join(file), ' - for ', ''.join(exportFormat), '.txt')
+splitFile = file.split('.', 1)[0]
+fileSaveName = (''.join(splitFile), ' - for ', ''.join(exportFormat), '.txt')
 print(''.join(fileSaveName))
 
 
