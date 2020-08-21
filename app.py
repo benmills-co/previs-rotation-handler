@@ -41,7 +41,7 @@ def runExport():
         print('This export format is currently unsupported.')
         quit()
     else:
-        print('Invalid export format chosen.')
+        print("Invalid export format chosen. How'd you do that?")
 
 runExport()
 
