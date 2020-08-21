@@ -3,9 +3,9 @@ import csv
 # Made by Ben Mills - 07/2020
 
 # Available export formats
-availableExportFormats = ['Capture', 'MA3D']
+availableExportFormats = ['Capture 2020', 'MA3D']
 # Chosen export format
-exportFormat = ['Capture']
+exportFormat = ['Capture 2020']
 
 # iData = Instrument Data
 filename = 'RotationTest.txt'
@@ -16,8 +16,8 @@ newIData = list(iData)
 
 # Main Function
 def runExport():
-    if exportFormat == ['Capture']:
-        print('Chosen export format:', ''.join(exportFormat), '\n')
+    print('Chosen export format:', ''.join(exportFormat), '\n')
+    if exportFormat == ['Capture 2020']:
         for row in newIData:
             # Make data numeric
             global X,Y,Z
@@ -38,8 +38,8 @@ def runExport():
             print('- IS NOW at rotation:   ', X, '/', Y, '/', Z, '\n')
 
     elif exportFormat == ['MA3D']:
-        print('Chosen export format:', ''.join(exportFormat), '\n')
         print('This export format is currently unsupported.')
+        quit()
     else:
         print('Invalid export format chosen.')
 
@@ -48,7 +48,7 @@ runExport()
 # File Export
 splitFile = filename.split('.', 1)[0]
 saveFilename = (''.join(splitFile), ' - for ', ''.join(exportFormat), '.txt')
-print('Exported to: ', ''.join(saveFilename))
+
 
 
 with open(''.join(saveFilename), 'w', newline='') as csvfile:
@@ -57,5 +57,6 @@ with open(''.join(saveFilename), 'w', newline='') as csvfile:
 
     writer.writeheader()
     writer.writerows(newIData)
+    print('Exported to: ', ''.join(saveFilename))
 
 iDataFile.close()
